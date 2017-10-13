@@ -1,0 +1,15 @@
+
+This directory contains some example codes.
+
+The author was able to compile the examples with the "runme" script. Modify
+the script in an appropriate way for your system.
+
+In their present form, the example codes require that you make available the
+author's "kip" ray tracing library. Use the compiler's -I option to indicate
+where kip's source code is located.
+
+You can run the "clean" script to delete object files and executables that
+were created by the compilation script.
+
+The test/ directory (at the same level as this example/ directory) contains
+test codes that could also be regarded as examples of how to use Metamesh.

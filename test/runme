@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# C++
+#export PRE='clang++-3.8 -std=c++11 -Wno-c++11-extensions
+export  PRE='g++ -std=gnu++11
+   -Wall -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum
+   -Wstrict-aliasing=2 -Wextra -Wundef -Wpointer-arith -Wunused-parameter
+   -Wcast-qual -Wcast-align -Wwrite-strings -Wredundant-decls -Wconversion
+   -I../../src
+   -I../../../kip-1.0/src
+   -pedantic
+   -O3 -funroll-loops
+   -s '
+export POST=''
+
+# Compile
+echo 'Compiling all test codes...'
+cd src
+   for file in metamesh-*.cc
+   do
+      $PRE ${file} -o ../exe/${file/.cc/} $POST
+   done
+cd ..
+
+# Run
+echo 'Running all test codes...'
+/bin/rm -f out
+cd exe
+   for file in metamesh-*[0-9]
+   do
+      echo >> ../out 2>&1
+      echo '------------------------' >> ../out 2>&1
+      echo ${file} >> ../out 2>&1
+      echo '------------------------' >> ../out 2>&1
+      ${file} >> ../out 2>&1
+   done
+cd ..
+
+# Done
+echo 'Done. Results are in the ./out file.'
+
+# Diff
+# diff ../out.correct out

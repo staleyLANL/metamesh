@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# C++
+#export PRE='clang++-3.8 -std=c++11 -Wno-c++11-extensions
+export  PRE='g++ -std=gnu++11 -fopenmp
+   -Wall -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum
+   -Wstrict-aliasing=2 -Wextra -Wundef -Wpointer-arith -Wunused-parameter
+   -Wcast-qual -Wcast-align -Wwrite-strings -Wredundant-decls -Wconversion
+   -I../src
+   -I../../kip-1.0/src
+   -pedantic
+   -O3 -funroll-loops
+   -s '
+export POST=''
+
+# Compile
+$PRE boy.cc   -o boy   $POST
+$PRE eight.cc -o eight $POST
+$PRE klein.cc -o klein $POST

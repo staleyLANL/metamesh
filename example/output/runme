@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# remove jpg files
+/bin/rm -f *.jpg
+
+
+# ------------------------
+# boy
+# ------------------------
+
+# rgb to jpg
+for file in boy*.rgb
+do
+   echo ${file} "-->" ${file/.rgb/}.jpg
+   convert -depth 8 -size 1280x1024 -quality 100 ${file} ${file/.rgb/}.jpg
+done
+
+# jpg to mp4
+/bin/rm -f boy.mp4
+ffmpeg -pattern_type glob -i 'boy*.jpg' -crf 20 -c:v libx264 boy.mp4
+
+
+# ------------------------
+# eight
+# ------------------------
+
+# rgb to jpg
+for file in eight*.rgb
+do
+   echo ${file} "-->" ${file/.rgb/}.jpg
+   convert -depth 8 -size 1280x1024 -quality 100 ${file} ${file/.rgb/}.jpg
+done
+
+# jpg to mp4
+/bin/rm -f eight.mp4
+ffmpeg -pattern_type glob -i 'eight*.jpg' -crf 20 -c:v libx264 eight.mp4
+
+
+# ------------------------
+# klein
+# ------------------------
+
+# rgb to jpg
+for file in klein*.rgb
+do
+   echo ${file} "-->" ${file/.rgb/}.jpg
+   convert -depth 8 -size 1280x1024 -quality 100 ${file} ${file/.rgb/}.jpg
+done
+
+# jpg to mp4
+/bin/rm -f klein.mp4
+ffmpeg -pattern_type glob -i 'klein*.jpg' -crf 20 -c:v libx264 klein.mp4

@@ -1,0 +1,3 @@
+#! /bin/bash
+
+/bin/rm -f out exe/metamesh-* exe/output/* *~ */*~

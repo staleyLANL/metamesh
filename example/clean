@@ -1,0 +1,6 @@
+#! /bin/bash
+
+/bin/rm -f *.o boy klein eight *~ */*~
+/bin/rm -f ./output/*.rgb
+/bin/rm -f ./output/*.jpg
+/bin/rm -f ./output/*.mp4
